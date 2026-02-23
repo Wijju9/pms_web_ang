@@ -1,24 +1,4 @@
-:root {
-  --bg: #0b1020;
-  --surface: #141c33;
-  --surface-alt: #1d2746;
-  --primary: #4f8cff;
-  --text: #eef2ff;
-  --muted: #aab6df;
-  --success: #38d39f;
-  --danger: #ff6b6b;
-}
-
-* { box-sizing: border-box; }
 body {
-  margin: 0;
-  font-family: Inter, Segoe UI, sans-serif;
-  background: linear-gradient(120deg, var(--bg), #111a31);
-  color: var(--text);
-}
-.card {
-  background: linear-gradient(160deg, var(--surface), var(--surface-alt));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 1rem;
+  background-color: #f4f6f8;
+  font-family: Inter, 'Segoe UI', sans-serif;
 }
