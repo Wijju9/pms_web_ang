@@ -1,0 +1,46 @@
+name: Release Artifacts
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Frontend Build
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+
+      - name: Upload Frontend Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bms-frontend-dist
+          path: frontend/dist
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Backend Publish
+        working-directory: backend/src/Bms.Api
+        run: |
+          dotnet restore
+          dotnet publish -c Release -o publish
+
+      - name: Upload Backend Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bms-api-publish
+          path: backend/src/Bms.Api/publish

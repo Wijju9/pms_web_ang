@@ -1,0 +1,23 @@
+<div class="dashboard-shell">
+  <header>
+    <h1>Building Management Command Center</h1>
+    <p>Real-time occupancy, maintenance, billing, parking, and visitor insights.</p>
+  </header>
+
+  <section *ngIf="loading" class="card">Loading live dashboard metrics…</section>
+
+  <section *ngIf="!loading && stats" class="grid">
+    <article class="card metric">
+      <h3>Occupancy</h3>
+      <p>{{ stats.occupiedFlats }}/{{ stats.totalFlats }} flats occupied</p>
+    </article>
+    <article class="card metric"><h3>Open Maintenance</h3><p>{{ stats.openMaintenance }}</p></article>
+    <article class="card metric"><h3>Pending Dues</h3><p>₹ {{ stats.pendingDues | number }}</p></article>
+    <article class="card metric"><h3>Active Visitors</h3><p>{{ stats.activeVisitors }}</p></article>
+    <article class="card metric"><h3>Available Parking</h3><p>{{ stats.availableParkingSlots }}</p></article>
+  </section>
+
+  <section *ngIf="!loading && !stats" class="card error">
+    Unable to load dashboard data. Please verify API connectivity.
+  </section>
+</div>
