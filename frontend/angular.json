@@ -29,5 +29,8 @@
       }
     }
   },
-  "defaultProject": "bms-frontend"
+  "defaultProject": "bms-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
