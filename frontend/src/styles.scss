@@ -1,4 +1,15 @@
+:root {
+  --app-background: #eef2f6;
+  --app-surface: #ffffff;
+}
+
+[data-bs-theme='dark'] {
+  --app-background: #111827;
+  --app-surface: #1f2937;
+}
+
 body {
-  background-color: #f4f6f8;
+  margin: 0;
+  background-color: var(--app-background);
   font-family: Inter, 'Segoe UI', sans-serif;
 }
